@@ -1,0 +1,15 @@
+{
+  "name": "img-compress",
+  "version": "1.0.0",
+  "description": "Image compress test",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('123')",
+    "dev":"./node_modules/.bin/live-server --port=8081"
+  },
+  "author": "Kane",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
