@@ -4,7 +4,7 @@
   "description": "Image compress test",
   "main": "index.js",
   "scripts": {
-    "test": "console.log('123')",
+    "test": "webpack --config config/index.js",
     "dev": "webpack-dev-server --config config/index.js"
   },
   "author": "Kane",
