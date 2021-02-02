@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import { useState, memo } from 'react';
 import './App.css';
+import { TestUseMemo } from './components/useMemo';
 
 function App() {
+  const [ number, setNumber ] = useState(0);
+  const [ test, setTest ] = useState({number:0});
+  const ChildBProps = {
+    test
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TestUseMemo
+        count={number}
+        onCountChange={(val) => {setNumber(val);}}/>
+      <ChildB {...ChildBProps}/>
+      <button onClick={() => { setTest({ now: number })}}>测试</button>
+      <button onClick={() => { setNumber(0); }}>测试2</button>
+    </>
   );
 }
+
+const ChildB = memo((props) => {
+  const { test } = props;
+  console.log('ChildB', test);
+  return (
+    <div>xxx</div>
+  )
+})
 
 export default App;
