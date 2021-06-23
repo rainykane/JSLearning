@@ -1,24 +1,49 @@
 import React, { memo } from 'react';
-
+import './index.css';
 
 const CanvasFC = (props) => {
   
-  const draw = () => {
-    const canvas = document.getElementById('test');
+  const draw = (id) => {
+    const canvas = document.getElementById(id);
     const ctx = canvas.getContext("2d");
     if(ctx) {
-      ctx.fillStyle = "rgb(200,0,0)";
-      ctx.fillRect(10, 10, 55, 50);
-      ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-      ctx.fillRect(30, 30, 55, 50);
-      console.log(ctx, 'xx');
+      switch(id) {
+        case 'test': {
+          ctx.fillStyle = "rgb(200,0,0)";
+          ctx.fillRect(10, 10, 55, 50);
+          ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+          ctx.fillRect(30, 30, 55, 50);
+          break;
+        }
+        case 'rect': {
+          ctx.fillStyle = 'rgb(0,0,0)';
+          ctx.fillRect(0, 0, 80, 80);
+        }
+        default: {
+
+        }
+      }
     }
   }
 
   return (
-    <div>
-      <h3 onClick={draw}>Canvas Star</h3>
-      <canvas id="test" width="300" height="300"></canvas>
+    <div className='wrapper'>
+      <div className='box'>
+        <h3 onClick={() => { draw('test') }}>Canvas test</h3>
+        <canvas id="test" width="80" height="80"></canvas>
+      </div>
+      <div className='box'>
+        <h3 onClick={() => { draw('rect') }}>Canvas Rect</h3>
+        <canvas id="rect" width="80" height="80"></canvas>
+      </div>
+      <div className='box'></div>
+      <div className='box'></div>
+      <div className='box'></div>
+      <div className='box'></div>
+      <div className='box'></div>
+      <div className='box'></div>
+      <div className='box'></div>
+      <div className='box'></div>
     </div>
   );
 };
