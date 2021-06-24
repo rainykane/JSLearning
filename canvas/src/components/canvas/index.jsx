@@ -16,11 +16,23 @@ const CanvasFC = (props) => {
           break;
         }
         case 'rect': {
-          ctx.fillStyle = 'rgb(0,0,0)';
+          ctx.fillStyle = 'rgb(0,0,255,0.25)';
           ctx.fillRect(0, 0, 80, 80);
+          ctx.clearRect(10, 10, 60, 60);
+          ctx.strokeRect(20, 20, 40, 40);
+          break;
+        }
+        case 'path': {
+          ctx.fillStyle = 'rgb(0,0,255,0.25)';
+          ctx.beginPath();
+          ctx.moveTo(40, 20);
+          ctx.lineTo(60, 40);
+          ctx.lineTo(20, 40);
+          ctx.fill();
+          break;
         }
         default: {
-
+          console.log('xxx');
         }
       }
     }
@@ -36,8 +48,14 @@ const CanvasFC = (props) => {
         <h3 onClick={() => { draw('rect') }}>Canvas Rect</h3>
         <canvas id="rect" width="80" height="80"></canvas>
       </div>
-      <div className='box'></div>
-      <div className='box'></div>
+      <div className='box'>
+        <h3 onClick={() => { draw('path') }}>Canvas Path</h3>
+        <canvas id="path" width="80" height="80"></canvas>
+      </div>
+      <div className='box'>
+        <h3 onClick={() => { draw('path') }}>Canvas Path</h3>
+        <canvas id="path" width="80" height="80"></canvas>
+      </div>
       <div className='box'></div>
       <div className='box'></div>
       <div className='box'></div>

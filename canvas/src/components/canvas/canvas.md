@@ -32,5 +32,6 @@
 2. html2canvas是如何实现的
 3. canvas 如何与画板结合
 4. canvas如何画自适应的图
+5. canvas 和 svg 的区别（两者经常相互比较）
 
 
