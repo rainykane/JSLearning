@@ -31,6 +31,12 @@ const CanvasFC = (props) => {
           ctx.fill();
           break;
         }
+        case 'circle': {
+          ctx.strokeStyle = 'rgb(0,255,0,0.25)';
+          ctx.arc(40, 40, 20, 0, Math.PI * 2, true);
+          ctx.stroke();
+          break;
+        }
         default: {
           console.log('xxx');
         }
@@ -53,8 +59,8 @@ const CanvasFC = (props) => {
         <canvas id="path" width="80" height="80"></canvas>
       </div>
       <div className='box'>
-        <h3 onClick={() => { draw('path') }}>Canvas Path</h3>
-        <canvas id="path" width="80" height="80"></canvas>
+        <h3 onClick={() => { draw('circle') }}>Canvas Circle</h3>
+        <canvas id="circle" width="80" height="80"></canvas>
       </div>
       <div className='box'></div>
       <div className='box'></div>
